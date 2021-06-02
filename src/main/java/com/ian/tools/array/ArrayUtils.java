@@ -2,18 +2,19 @@ package com.ian.tools.array;
 
 /**
  * 
- * 本類別詳細說明。
+ * 
  * <p/>
- * Package: com.ian.Array <br>
+ * Package: com.ian.tools.array <br>
  * File Name: ArrayUtils <br>
  * <p/>
- * Purpose: <br>
+ * Purpose: Array Use  <br>
  * 
  * @ClassName: com.ian.Array.ArrayUtils
- * @Description: TODO
+ * @Description: Array Use 
  * @Company: Team.
  * @author Ian
  * @version 1.0, 2019年2月17日
+ * @see 
  */
 public class ArrayUtils {
 	
