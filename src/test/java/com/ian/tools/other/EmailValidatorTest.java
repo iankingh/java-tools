@@ -1,5 +1,10 @@
 package com.ian.tools.other;
 
+import java.util.Arrays;
+
+/**
+ * 
+ */
 public class EmailValidatorTest {
 
     // list of valid email addresses
@@ -15,16 +20,22 @@ public class EmailValidatorTest {
             "journaldev@journaldev@gmail.com", "journaldev@gmail.com.1a" };
 
     public static void main(String args[]) {
-        EmailValidator emailValidator = new EmailValidator();
-        for (String temp : validEmailIds) {
-            boolean valid = emailValidator.validateEmail(temp);
-            System.out.println("Email ID " + temp + " is valid? " + valid);
-        }
-        System.out.println("\n\n");
-        for (String temp : invalidEmailIds) {
-            boolean valid = emailValidator.validateEmail(temp);
-            System.out.println("Email ID " + temp + " is valid? " + valid);
-        }
+        EmailValidator  emailValidator  =new  EmailValidator();
+        System.out.println("---------------------- validEmailIds --------------------------------------");
+        // for (String temp : validEmailIds) {
+        // boolean valid = emailValidator.validateEmail(temp);
+        // System.out.println("Email ID " + temp + " is valid? " + valid);
+        // }
+        Arrays.stream(validEmailIds)
+                .forEach(s -> System.out.println("Email ID " + s + " is valid ? :" + emailValidator.validateEmail(s)));
+
+        System.out.println("---------------------- invalidEmailIds --------------------------------------");
+        // for (String temp : invalidEmailIds) {
+        // boolean valid = emailValidator.validateEmail(temp);
+        // System.out.println("Email ID " + temp + " is valid? " + valid);
+        // }
+        Arrays.stream(invalidEmailIds)
+                .forEach(s -> System.out.println("Email ID " + s + " is valid ? :" + emailValidator.validateEmail(s)));
     }
 
 }
