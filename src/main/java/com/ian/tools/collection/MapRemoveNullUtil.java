@@ -7,6 +7,13 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+
+/**
+ * 	// 作者：wuyu10fCg
+	// 来源：CSDN
+	// 原文：https://blog.csdn.net/wuyu10FG/article/details/46445477
+	// 版权声明：本文为博主原创文章，转载请附上博文链接！
+ */
 public class MapRemoveNullUtil {
 
 	/**
@@ -109,8 +116,5 @@ public class MapRemoveNullUtil {
 		System.out.println();
 		System.out.println(map);
 	}
-	// 作者：wuyu10fCg
-	// 来源：CSDN
-	// 原文：https://blog.csdn.net/wuyu10FG/article/details/46445477
-	// 版权声明：本文为博主原创文章，转载请附上博文链接！
+
 }

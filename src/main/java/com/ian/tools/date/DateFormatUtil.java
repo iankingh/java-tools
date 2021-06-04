@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DateFormatMethod
+public class DateFormatUtil
 {
 	public String DateFormatChange(Date date)
 	{

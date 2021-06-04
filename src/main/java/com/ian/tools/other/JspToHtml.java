@@ -1,6 +1,8 @@
-package com.ian.tools.propertiesread;
+package com.ian.tools.other;
 
 import java.io.*;
+
+import com.ian.tools.propertiesread.ConnectionUrl;
 
 
  /**

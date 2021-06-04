@@ -5,6 +5,14 @@ import java.util.List;
 
 /**
  * 
+ * 
+ * 	//
+	// ---------------------
+	// 作者：lijpdx
+	// 来源：CSDN
+	// 原文：https://blog.csdn.net/jjwldxsk/article/details/68945824
+	// 版权声明：本文为博主原创文章，转载请附上博文链接！
+ * 
  * 本類別詳細說明。
  * <p/>
  * Package: com.ian.json <br>
@@ -113,11 +121,6 @@ public class RemoveNullAttr {
 			return false;
 		}
 	}
-	//
-	// ---------------------
-	// 作者：lijpdx
-	// 来源：CSDN
-	// 原文：https://blog.csdn.net/jjwldxsk/article/details/68945824
-	// 版权声明：本文为博主原创文章，转载请附上博文链接！
+
 
 }

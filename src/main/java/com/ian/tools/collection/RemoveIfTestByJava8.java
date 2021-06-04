@@ -12,6 +12,13 @@ import java.util.function.Predicate;
  * Package: com.ian.collection <br>
  * File Name: RemoveIfTestByJava8 <br>
  * <p/>
+ * 
+ * // 作者：黄嘉成
+// 来源：CSDN
+// 原文：https://blog.csdn.net/qq_33829547/article/details/80277956
+// 版权声明：本文为博主原创文章，转载请附上博文链接！
+
+ * 
  * Purpose:在JDK1.8中，Collection以及其子类新加入了removeIf方法，作用是按照一定规则过滤集合中的元素。这里给读者展示removeIf的用法。
  * 首先设想一个场景，你是公司某个岗位的HR，收到了大量的简历，为了节约时间，现需按照一点规则过滤一下这些简历。比如这个岗位是低端岗位，只招30岁以下的求职者。
  * <br>
@@ -58,7 +65,3 @@ public class RemoveIfTestByJava8 {
 
 }
 
-// 作者：黄嘉成
-// 来源：CSDN
-// 原文：https://blog.csdn.net/qq_33829547/article/details/80277956
-// 版权声明：本文为博主原创文章，转载请附上博文链接！

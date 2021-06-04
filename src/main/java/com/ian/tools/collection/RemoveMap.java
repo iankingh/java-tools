@@ -3,6 +3,7 @@ package com.ian.tools.collection;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class RemoveMap {
 
@@ -18,11 +19,11 @@ public class RemoveMap {
 		map.put("7", "seven");
 		System.out.println("map :{} " + map);
 		// You can use the Java 8 method Collection.removeIf for this purpose:
-//		map.values().removeIf(Objects::isNull);
-//		System.out.println("map2 :{} " + map);
+		map.values().removeIf(Objects::isNull);
+		System.out.println("map2 :{} " + map);
 		// If you are using pre-Java 8, you can use:
 		Collection<String> values = map.values();
-		while (values.remove(null)||values.remove("")) {
+		while (values.remove(null) || values.remove("")) {
 		}
 		System.out.println("map3 :{} " + map);
 
