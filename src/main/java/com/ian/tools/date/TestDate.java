@@ -13,10 +13,9 @@ public class TestDate {
 
 		// 取得今天日期
 		Date date = new Date();
-		DateFormatMethod dateFormatchange = new DateFormatMethod();
+		DateFormatUtil dateFormatchange = new DateFormatUtil();
 		String newFormateDate = dateFormatchange.DateFormatChange(date);
 		System.out.println("NewFormateDate : " + newFormateDate);
-		// 取得今天日期
 
 		// 取現在時間
 		Timestamp newTimestamp = new java.sql.Timestamp(new java.util.Date().getTime());

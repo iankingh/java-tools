@@ -1,6 +1,6 @@
 package com.ian.tools.batch;
 
-import com.ian.propertiesread.JspToHtml;
+import com.ian.tools.other.JspToHtml;
 
 public class TestSendMail {
 
