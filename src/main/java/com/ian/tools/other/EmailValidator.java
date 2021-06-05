@@ -19,7 +19,6 @@ import java.util.regex.Pattern;
  * @version 1.0, 2021年06月02日
  * @see https://blog.csdn.net/cunchi4221/article/details/107470879
  */
-
 public class EmailValidator {
 
 	private static final String EMAIL_REGEX = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
