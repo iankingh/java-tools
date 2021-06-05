@@ -1,4 +1,4 @@
-package com.ian.tools.propertiesread;
+package com.ian.tools.properties;
 
 public class ConnectionUrlTest {
 

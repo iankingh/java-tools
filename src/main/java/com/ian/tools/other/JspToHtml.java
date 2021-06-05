@@ -2,7 +2,7 @@ package com.ian.tools.other;
 
 import java.io.*;
 
-import com.ian.tools.propertiesread.ConnectionUrl;
+import com.ian.tools.properties.ConnectionUrl;
 
 
  /**
