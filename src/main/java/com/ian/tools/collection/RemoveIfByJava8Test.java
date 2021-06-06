@@ -2,35 +2,21 @@ package com.ian.tools.collection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
 
-/**
+ /**
  * 
- * 本類別詳細說明。
- * 
- * 	// ---------------------
-	// 作者：李学凯
-	// 来源：CSDN
-	// 原文：https://blog.csdn.net/qq_27093465/article/details/79154566
-	// 版权声明：本文为博主原创文章，转载请附上博文链接！
- * <p/>
- * Package: com.ian.collection <br>
- * File Name: RemoveIfByjava8Test2 <br>
- * <p/>
- * Purpose: <br>
- * 
- * @ClassName: com.ian.collection.RemoveIfByjava8Test2
- * @Description: TODO
- * @Company: Team.
+ * @ClassName: com.ian.tools.collection.RemoveIfByjava8Test
+ * @Description: 用來移除Map 中 nll 的值
  * @author Ian
- * @version 1.0, 2019年3月4日
+ * @version 1.0, 2021年06月02日
+ * @see https://blog.csdn.net/qq_27093465/article/details/79154566
  */
-public class RemoveIfByjava8Test2 {
+public class RemoveIfByJava8Test {
 
-		// 最后，看看源码，多说一丢丢。
-	//
-	// 直接点击，跳转到源码位置，发现如下；
 
 	// default boolean removeIf(Predicate<? super E> filter) {
 	// Objects.requireNonNull(filter);
@@ -118,6 +104,40 @@ public class RemoveIfByjava8Test2 {
 			}
 		}
 		System.out.println("过滤完：" + list.toString());
+	}
+
+
+	
+	public static void main(String[] args) {
+
+		// 该Person类只有三个成员属性，分别是姓名name，年龄age和性别gender。现要过滤age大于等于30的求职者。
+		// 下面是不用removeIf，而是使用Iterator的传统写法：
+		Collection<Person> collection = new ArrayList();
+		collection.add(new Person("张三", 22, "男"));
+		collection.add(new Person("李四", 19, "女"));
+		collection.add(new Person("王五", 34, "男"));
+		collection.add(new Person("赵六", 30, "男"));
+		collection.add(new Person("田七", 25, "女"));
+		// 过滤30岁以上的求职者
+		Iterator<Person> iterator = collection.iterator();
+		while (iterator.hasNext()) {
+			Person person = iterator.next();
+			if (person.getAge() >= 30)
+				iterator.remove();
+		}
+		System.out.println(collection.toString());// 查看结果
+		// 下面再看看使用removeIf的写法：
+		collection.removeIf(person -> person.getAge() >= 30);// 过滤30岁以上的求职者
+		System.out.println(collection.toString());// 查看结果
+		// 30岁以上的王五和赵六都被过滤掉了。
+		// 当然，如果对lambda表达式不熟悉的话，也可以使用不用lambda的removeIf，代码如下：
+		collection.removeIf(new Predicate<Person>() {
+			@Override
+			public boolean test(Person person) {
+				return person.getAge() >= 30;// 过滤30岁以上的求职者
+			}
+		});
+		System.out.println(collection.toString());// 查看结果
 	}
 
 
