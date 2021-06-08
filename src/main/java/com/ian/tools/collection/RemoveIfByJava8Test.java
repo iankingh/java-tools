@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
 
- /**
+/**
  * 
  * @ClassName: com.ian.tools.collection.RemoveIfByjava8Test
  * @Description: 用來移除Map 中 nll 的值
@@ -16,7 +16,6 @@ import java.util.function.Predicate;
  * @see https://blog.csdn.net/qq_27093465/article/details/79154566
  */
 public class RemoveIfByJava8Test {
-
 
 	// default boolean removeIf(Predicate<? super E> filter) {
 	// Objects.requireNonNull(filter);
@@ -43,7 +42,6 @@ public class RemoveIfByJava8Test {
 	// 对，所以，上面我的代码里面，使用的是arraylist，所以，这个方法在arraylist类里面被覆盖啦。
 	//
 	// 所以，你调用的不一定就是这个Collection里面的这个方法
-
 
 	// 作用：
 	// 删除集合中符合条件的成员，empty集合也可以，但是null就炸啦。
@@ -106,9 +104,9 @@ public class RemoveIfByJava8Test {
 		System.out.println("过滤完：" + list.toString());
 	}
 
-
-	
 	public static void main(String[] args) {
+
+
 
 		// 该Person类只有三个成员属性，分别是姓名name，年龄age和性别gender。现要过滤age大于等于30的求职者。
 		// 下面是不用removeIf，而是使用Iterator的传统写法：
@@ -138,9 +136,7 @@ public class RemoveIfByJava8Test {
 			}
 		});
 		System.out.println(collection.toString());// 查看结果
+
 	}
-
-
-
 
 }
