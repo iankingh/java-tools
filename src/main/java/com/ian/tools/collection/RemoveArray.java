@@ -11,6 +11,7 @@ public class RemoveArray {
 		//
 		List<String> list = new ArrayList<String>(Arrays.asList("", "HI1", null, "How1"));
 		System.out.println(list);
+		System.out.println(Arrays.asList("", null));
 		list.removeAll(Arrays.asList("", null));
 		System.out.println(list);
 
@@ -22,11 +23,11 @@ public class RemoveArray {
 		
 //		Another way to do this now that we have Java 8 lambda expressions.
 		List<String> arrayList = new ArrayList<String>(Arrays.asList("", "Hi3", null, "How3"));
-		arrayList.removeIf(item -> item == null || "".equals(item));
+		arrayList.removeIf(item -> item == null || item.isEmpty());
 		System.out.println(arrayList);
-//		arrayList.removeIf(String::isNullOrEmpty);
-//		arrayList.removeIf(StringUtils::isEmpty);
-//		arrayList.removeIf(StringUtils::isBlank);
+		// arrayList.removeIf(String::isNullOrEmpty);
+		// arrayList.removeIf(StringUtils::isEmpty);
+		// arrayList.removeIf(StringUtils::isBlank);
 	}
 
 }
