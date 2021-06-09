@@ -18,14 +18,11 @@ public class Product {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return "id:" + this.id + "\t name:" + this.name + "\t price:" + this.price + "\t\n";
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		List<Product> list = new LinkedList<Product>();
-
 		Product p1 = new Product("ipad", "K001", 299d);
 		Product p2 = new Product("iphone", "K101", 299d);
 		Product p3 = new Product("ipod", "K002", 299d);

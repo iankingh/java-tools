@@ -59,46 +59,9 @@ public class Test
 
 	public static void main(String[] args)
 	{
+		System.out.printf("%d %d", -500 , 2343);
 
-		Test t = new Test();
-		t.testGsonConvert();
-
-		System.out.println(t.camelCase("easy_book", true));
-
-		Integer id = new Integer("1000000000");
-		BigDecimal bigDecimal = new BigDecimal("8000000080000000000000000000000000000000000000000000000");
-		System.out.println("iD " + id);
-		System.out.println("big " + bigDecimal);
-
-		boolean isInt = false;
-
-		boolean isDouble = false;
-
-		Scanner scanner = new Scanner(System.in);
-
-		String input = scanner.next();
-
-		char c1[] = new char[input.length()];
-
-		for (int i = 0; i < input.length(); i++)
-		{
-			c1[i] = input.charAt(i);
-			if (Character.isDigit(c1[i]) == false)
-			{
-				isDouble = true;
-			}
-		}
-		if (isDouble == false)
-		{
-			isInt = true;
-		}
-		if (isInt == true)
-		{
-			System.out.println("int");
-		}
-		else if (isDouble == true)
-		{
-			System.out.println("double");
-		}
 	}
+
+
 }
