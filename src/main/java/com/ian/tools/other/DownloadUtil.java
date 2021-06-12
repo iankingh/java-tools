@@ -108,7 +108,7 @@ public class ExcelUtil {
 	 */
 	private static void convertDataToRow(Sheet sheet, List<Map<String, String>> dataList, int rowNum) {
 	    
-	    log.debug(ESAPIUtil.vaildLog("convertDataToRow dataList " + dataList));
+	    log.debug("convertDataToRow dataList ");
 		// 取得 原始要取代的row #LSTLTD #MEMO #CODDBCR #AMTTRN #BAL #CHKNUM #DATA16 #TRNBRH
 		// #FILLER2 #TIME
 		Row RowOriginal = sheet.getRow(rowNum);
