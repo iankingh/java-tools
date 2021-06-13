@@ -1,4 +1,4 @@
-package com.ian.string;
+package com.ian.tools.string;
 
 import java.io.UnsupportedEncodingException;
 
@@ -6,8 +6,6 @@ public class StringforMain {
 
 	public static void main(String[] args) {
 
-		String UAA = "010200";
-		System.out.println(UAA.subSequence(0, 2));
 
 		// 用于存储html字符串
 		StringBuilder stringHtml = new StringBuilder();
@@ -27,7 +25,7 @@ public class StringforMain {
 		Object i = 1;
 		int is = (int) i;
 		String uaa = null;
-		boolean b = StringUtils.isBlank((String) uaa);
+		boolean b = StrUtils.isBlank((String) uaa);
 		System.out.println((String) uaa);
 		/**
 		 * 分開 字母和數字
@@ -98,28 +96,28 @@ public class StringforMain {
 
 		// 判斷某字串是否為空值，為空值的標準是 字串等於null 、字串的長度為 0 或者是字串是由空白所組成的的狀態下
 		System.out.println("******StringUtils.isBlank*******");
-		System.out.println(StringUtils.isBlank(null));// true
-		System.out.println(StringUtils.isBlank(""));// true
-		System.out.println(StringUtils.isBlank(" "));// true
-		System.out.println(StringUtils.isBlank("abc"));// false
-		System.out.println(StringUtils.isBlank("  abc  "));// false
-		System.out.println(StringUtils.isBlank("\t \n \f \r")); // true
+		System.out.println(StrUtils.isBlank(null));// true
+		System.out.println(StrUtils.isBlank(""));// true
+		System.out.println(StrUtils.isBlank(" "));// true
+		System.out.println(StrUtils.isBlank("abc"));// false
+		System.out.println(StrUtils.isBlank("  abc  "));// false
+		System.out.println(StrUtils.isBlank("\t \n \f \r")); // true
 		System.out.println("******StringUtils.isBlankEND*******");
 		// 而相反的就是不為空值，字串不等於null 、字串的長度不為 0 或者是字串不是由空白所組成的的狀態下
 		System.out.println("******StringUtils.isNotBlank*******");
-		System.out.println(StringUtils.isNotBlank(null));// false
-		System.out.println(StringUtils.isNotBlank(""));// false
-		System.out.println(StringUtils.isNotBlank(" "));// false
-		System.out.println(StringUtils.isNotBlank("abc"));// true
-		System.out.println(StringUtils.isNotBlank("  abc  "));// true
-		System.out.println(StringUtils.isNotBlank("\t \n \f \r"));// false
+		System.out.println(StrUtils.isNotBlank(null));// false
+		System.out.println(StrUtils.isNotBlank(""));// false
+		System.out.println(StrUtils.isNotBlank(" "));// false
+		System.out.println(StrUtils.isNotBlank("abc"));// true
+		System.out.println(StrUtils.isNotBlank("  abc  "));// true
+		System.out.println(StrUtils.isNotBlank("\t \n \f \r"));// false
 		System.out.println("******StringUtils.isNotBlankEND*******");
 		// 判斷 cid 不是空的嗎? 不是>>轉大寫 : 是 "";
 		// String cid =
 		// StringUtils.isNotBlank(req.getParameter(PARAM_CUSTOMER_ID))
 		// ? req.getParameter(PARAM_CUSTOMER_ID).toUpperCase() : "";
 		String Stringutilstest = "abcdefg123";
-		String cid = StringUtils.isNotBlank(Stringutilstest) ? Stringutilstest.toUpperCase() : "";
+		String cid = StrUtils.isNotBlank(Stringutilstest) != null ? Stringutilstest.toUpperCase() : "";
 		System.out.println("cid : " + cid);
 
 		String numX = "15165S1651s";
@@ -188,21 +186,5 @@ public class StringforMain {
 
 	}
 
-	// 抽成 外部檔
-	public static void checkNum() {
-		String num = "151651651";
-
-		// java 驗證密碼的正則表達式,要求同時有數字和字母，長度最小6，最大16
-		String reg = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$";
-		// 規則 第一位[1-9], 第二位以後[0-9] 出現次數{4,14}
-		String regex = "[1-9][0-9]{4,14}";
-		boolean flag = num.matches(regex);
-
-		if (flag) {
-			System.out.println("OK");
-		} else {
-			System.out.println("No");
-		}
-	}
 
 }

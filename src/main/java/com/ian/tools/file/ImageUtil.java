@@ -21,6 +21,8 @@ public class ImageUtil {
      * @return true 成功, false 失敗
      */
     public static boolean save(String base64, String destFilename) {
+        log.debug("path : " + destFilename);
+        log.debug("base64 : " + base64);
         // 宣告 資料流
         ByteArrayInputStream byteArrayInputStream = null;
         // 宣告 檔案流
@@ -28,11 +30,9 @@ public class ImageUtil {
         try {
             // 取得 decode Base64 字串
             Optional<byte[]> optImage = decodeBase64(base64);
+            log.debug("optImage : " + optImage.get());
             if (optImage.isPresent()) {
                 byte[] image = optImage.get();
-                log.debug("base64 : " + base64);
-                log.debug("optImage : " + optImage.get());
-                log.debug("path : " + destFilename);
                 // 建立 資料流
                 byteArrayInputStream = new ByteArrayInputStream(image);
                 // 建立 檔案流

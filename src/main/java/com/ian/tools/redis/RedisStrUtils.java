@@ -1,4 +1,4 @@
-package com.ian.redis;
+package com.ian.tools.redis;
 
 import java.util.Collection;
 import java.util.concurrent.TimeUnit;
