@@ -1,4 +1,4 @@
-package com.ian.redis;
+package com.ian.tools.redis;
 
 import java.io.Serializable;
 import java.util.List;

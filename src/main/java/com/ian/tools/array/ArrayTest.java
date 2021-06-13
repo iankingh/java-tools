@@ -40,7 +40,7 @@ public class ArrayTest {
 		accountNoList.add(4);
 		// new 一個 StringBuffer實體
 		final StringBuffer queryString = new StringBuffer();
-		queryString.append(" AND PAYER.ACCOUNT_KEY IN ('").append(StringUtils.join(accountNoList.toArray(), "','"))
+		queryString.append(" AND PAYER.ACCOUNT_KEY IN ('").append(StrUtilsTest.join(accountNoList.toArray(), "','"))
 				.append("')");
 		System.out.println("queryString1111 : " + queryString);
 

@@ -1,4 +1,4 @@
-package com.ian.string;
+package com.ian.tools.string;
 
 public class SimpleLetterAndNumCheck {
 
