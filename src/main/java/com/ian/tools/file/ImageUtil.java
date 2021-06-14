@@ -1,7 +1,6 @@
 package com.ian.tools.file;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
