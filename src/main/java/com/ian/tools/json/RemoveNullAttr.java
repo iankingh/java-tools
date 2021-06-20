@@ -46,7 +46,6 @@ public class RemoveNullAttr {
 		if (json == null) {
 			return null;
 		}
-
 		try {
 
 			if (json instanceof JSONObject) {// if json is a Map

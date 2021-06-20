@@ -16,7 +16,7 @@ import java.util.Map;
  * @Description: 使用 Get 連線
  * @Copyright : Copyright (c) TCB Corp. 2017. All Rights Reserved.
  * @Company: FSTOP Team.
- * @author Administrator
+ * @author ian
  * @version 1.0, 2017/11/26
  */
 

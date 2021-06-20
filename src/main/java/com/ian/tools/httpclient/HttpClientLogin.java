@@ -28,7 +28,7 @@ import com.ian.propertiesread.ConnectionUrl;
  * @return : HashMap<String, String> returnCode 狀態碼 returnDesc 錯誤回傳狀態
  * @Copyright : Copyright (c) TCB Corp. 2017. All Rights Reserved.
  * @Company: FSTOP Team.
- * @author 黃景毅
+ * @author ian
  * @version 1.0, 2017/11/15
  * 
  */

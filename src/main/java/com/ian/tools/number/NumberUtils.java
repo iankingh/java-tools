@@ -7,9 +7,6 @@ public class NumberUtils {
 
 	/**
 	 * 
-	 */
-	/**
-	 * 
 	 * @param num
 	 */
 	public static boolean checkNum(String num) {
@@ -21,7 +18,7 @@ public class NumberUtils {
 		boolean flag = num.matches(regex);
 		if (flag) {
 			log.debug("OK");
-			
+
 		} else {
 			log.debug("NO");
 		}

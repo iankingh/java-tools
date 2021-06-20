@@ -1,4 +1,4 @@
-package com.ian.other;
+package com.ian.tools.other;
 
 import java.io.IOException;
 import java.io.InputStream;

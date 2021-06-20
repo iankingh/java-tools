@@ -11,6 +11,9 @@ import java.util.Map;
 
 import com.ian.tools.enums.Week;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class DateUtil {
 	private static final ThreadLocal<SimpleDateFormat> threadLocal = new ThreadLocal<SimpleDateFormat>();
 
@@ -754,5 +757,24 @@ public class DateUtil {
 		return new SimpleLunarCalendar(date);
 
 	}
+
+	
+    // 取得目前的YYYYMMDD
+    public static String getYYYYMMDD() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+        String YYYYMMDD = sdf.format(new Date()).substring(0, 8);
+        log.debug("YYYYMMDD=" + YYYYMMDD);
+
+        return YYYYMMDD;
+    }
+
+    // 取得目前的HHMMSS
+    public static String getHHMMSS() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+        String HHMMSS = sdf.format(new Date()).substring(8, 14);
+        log.debug("HHMMSS=" + HHMMSS);
+
+        return HHMMSS;
+    }
 
 }
