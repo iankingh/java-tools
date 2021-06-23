@@ -1,4 +1,4 @@
-package com.ian.tools.batch;
+package com.ian.tools.other;
 
 import java.util.Properties;
 
