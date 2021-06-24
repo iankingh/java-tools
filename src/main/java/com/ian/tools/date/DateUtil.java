@@ -758,23 +758,49 @@ public class DateUtil {
 
 	}
 
-	
-    // 取得目前的YYYYMMDD
-    public static String getYYYYMMDD() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-        String YYYYMMDD = sdf.format(new Date()).substring(0, 8);
-        log.debug("YYYYMMDD=" + YYYYMMDD);
+	// 取得目前的YYYYMMDD
+	public static String getYYYYMMDD() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+		String YYYYMMDD = sdf.format(new Date()).substring(0, 8);
+		log.debug("YYYYMMDD=" + YYYYMMDD);
 
-        return YYYYMMDD;
-    }
+		return YYYYMMDD;
+	}
 
-    // 取得目前的HHMMSS
-    public static String getHHMMSS() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-        String HHMMSS = sdf.format(new Date()).substring(8, 14);
-        log.debug("HHMMSS=" + HHMMSS);
+	// 取得目前的HHMMSS
+	public static String getHHMMSS() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+		String HHMMSS = sdf.format(new Date()).substring(8, 14);
+		log.debug("HHMMSS=" + HHMMSS);
 
-        return HHMMSS;
-    }
+		return HHMMSS;
+	}
+
+	/**
+	 * 
+	 * 判斷時間是否在時段內
+	 * 
+	 * @param nowTime
+	 * @param beginTime
+	 * @param endTime
+	 * @return
+	 * @see 原文：https://blog.csdn.net/Blue_Red_1314/article/details/72897078
+	 */
+	public static boolean CheckTimebelongCalendar(Date nowTime, Date beginTime, Date endTime) {
+		Calendar date = Calendar.getInstance();
+		date.setTime(nowTime);
+
+		Calendar begin = Calendar.getInstance();
+		begin.setTime(beginTime);
+
+		Calendar end = Calendar.getInstance();
+		end.setTime(endTime);
+
+		if (date.after(begin) && date.before(end)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 }

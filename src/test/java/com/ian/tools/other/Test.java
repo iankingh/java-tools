@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
 
+
 public class Test {
 	public static String camelCase(String input, boolean firstCharacterUppercase) {
 		StringBuilder sb = new StringBuilder();
@@ -48,13 +49,9 @@ public class Test {
 		System.out.println(ids);
 	}
 
-	public static void main(String[] args) {
-		System.out.printf("%d %d", -500, 2343);
-
-	}
 
 	@Test
-	public static void test() throws UnsupportedEncodingException {
+	public  void test() throws UnsupportedEncodingException {
 		String unicode = "中文";
 		System.out.println("UTF-16: " + unicode);
 		char y[] = unicode.toCharArray();

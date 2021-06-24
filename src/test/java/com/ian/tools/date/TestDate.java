@@ -8,6 +8,9 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class TestDate {
 	public static void main(String[] args) {
 
@@ -15,43 +18,43 @@ public class TestDate {
 		Date date = new Date();
 		DateFormatUtil dateFormatchange = new DateFormatUtil();
 		String newFormateDate = dateFormatchange.DateFormatChange(date);
-		System.out.println("NewFormateDate : " + newFormateDate);
+		log.debug("NewFormateDate : " + newFormateDate);
 
 		// 取現在時間
 		Timestamp newTimestamp = new java.sql.Timestamp(new java.util.Date().getTime());
-		System.out.println("newTimestamp : " + newTimestamp);
+		log.debug("newTimestamp : " + newTimestamp);
 
 		// 設定時間格式
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		// 取現在時間(String)
 		String NEWLAST_ACCESS_TIME = new java.sql.Timestamp(new java.util.Date().getTime()).toString();
-		System.out.println("NEWLAST_ACCESS_TIME : " + NEWLAST_ACCESS_TIME);
+		log.debug("NEWLAST_ACCESS_TIME : " + NEWLAST_ACCESS_TIME);
 		// 更新時間格式
 		String NEWLAST_ACCESS_TIMEchange = df.format(newTimestamp);
 
-		System.out.println("NEWLAST_ACCESS_TIMEchange : " + NEWLAST_ACCESS_TIMEchange);
+		log.debug("NEWLAST_ACCESS_TIMEchange : " + NEWLAST_ACCESS_TIMEchange);
 
-		System.out.println("當前日期和時間的 java.time.LocalDateTime = "
+		log.debug("當前日期和時間的 java.time.LocalDateTime = "
 				+ LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-		System.out.println("當前日期和時間的 java.time.LocalDate     = "
+		log.debug("當前日期和時間的 java.time.LocalDate     = "
 				+ LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-		System.out.println("當前日期和時間的 java.time.LocalTime     = "
+		log.debug("當前日期和時間的 java.time.LocalTime     = "
 				+ LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
 
 		LocalDate today = LocalDate.now();
 		LocalDate christmas = LocalDate.parse("2017-12-25");
 		LocalDateTime LocalDateTime = LocalDate.now().atTime(0, 0, 0, 0);
 
-		System.out.println("today " + today);
-		System.out.println("christmas " + christmas);
-		System.out.println("LocalDateTime " + LocalDateTime);
+		log.debug("today " + today);
+		log.debug("christmas " + christmas);
+		log.debug("LocalDateTime " + LocalDateTime);
 		;
 
 		//// DateTime joda = new DateTime("2017-11-18T16:08:13.001");
-		// System.out.println("joda " + joda);
+		// log.debug("joda " + joda);
 		// LocalTime today22 = LocalTime.now();
 		//
-		// System.out.println("today22 " + today22);
+		// log.debug("today22 " + today22);
 		// Date date2 = new Date();
 		// System.out.println("date " + date2);
 	}

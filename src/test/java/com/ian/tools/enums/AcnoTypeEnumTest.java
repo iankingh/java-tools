@@ -1,6 +1,5 @@
-package com.ian.tools.other;
+package com.ian.tools.enums;
 
-import com.ian.tools.enums.AcnoTypeEnum;
 
 public class AcnoTypeEnumTest {
 

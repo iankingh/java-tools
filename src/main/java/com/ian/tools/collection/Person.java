@@ -1,8 +1,7 @@
 package com.ian.tools.collection;
 
-//求职者的实体类
+// 求職者的實體
 public class Person {
-	
 
 	private String name;// 姓名
 	private Integer age;// 年龄
