@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.ian.tools.array.ArrayUtils;
+import com.ian.tools.collection.ArrayUtils;
 
 
 public class ArrayTest {

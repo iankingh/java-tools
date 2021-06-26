@@ -1,4 +1,4 @@
-package com.ian.tools.array;
+package com.ian.tools.collection;
 
 /**
  * 

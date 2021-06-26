@@ -8,9 +8,8 @@ import java.util.*;
 
 public class ScheduleServlet extends HttpServlet {
 
-
   Timer timer;
-  
+
   int i = 0;
 
   public void init() throws ServletException {
