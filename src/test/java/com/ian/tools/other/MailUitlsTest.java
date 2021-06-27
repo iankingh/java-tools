@@ -12,7 +12,7 @@ public class MailUitlsTest {
     }
 
     @Test
-    public void sendMailTest2(){
+    public void sendMailTest2() {
         System.out.println("Sending mail...");
         Properties props = new Properties();
         props.setProperty("mail.transport.protocol", "smtp");
@@ -60,12 +60,12 @@ public class MailUitlsTest {
     }
 
     // It's easy to send HTML mail with JavaMail. Simply set the content type to
-// "text/html".
+    // "text/html".
     @Test
-    public void sendMailTest3(){
+    public void sendMailTest3() {
 
         System.out.println("Sending mail...");
-        
+
         Properties props = new Properties();
         props.setProperty("mail.transport.protocol", "smtp");
         props.setProperty("mail.host", "smtp.mymailserver.com");
@@ -88,7 +88,7 @@ public class MailUitlsTest {
     }
 
     // One approach to include images in the mail body is to use the IMG tag and
-// make the images available on a server.
+    // make the images available on a server.
     @Test
     public void sendMailTest4() {
 
@@ -113,13 +113,38 @@ public class MailUitlsTest {
         transport.connect();
         transport.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
         transport.close();
-        
+
     }
 
+    public void sendMail(String to, String subject, String messageText) {
 
+        try {
+            Properties props = new Properties();
+            props.put("mail.smtp.host", "smtp.gmail.com");
+            props.put("mail.smtp.socketFactory.port", "465");
+            props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.port", "465");
 
+            final String myGmail = "xxx@gmail.com";
+            final String myGmail_password = "xxxx";
+            Session session = Session.getInstance(props, new Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(myGmail, myGmail_password);
+                }
+            });
 
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(myGmail));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 
+            message.setSubject(subject);
+            message.setContent(messageText, "text/html; charset=UTF-8");
+
+            Transport.send(message);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
-
