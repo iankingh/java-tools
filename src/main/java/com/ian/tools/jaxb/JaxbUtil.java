@@ -1,9 +1,9 @@
 package com.ian.tools.jaxb;
 
-import org.slf4j.Logger;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.StringReader;
 import java.io.StringWriter;
 
 import javax.xml.bind.JAXBContext;

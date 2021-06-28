@@ -1,10 +1,8 @@
 package com.ian.tools.other;
 
-import java.io.File;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -17,7 +15,6 @@ import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.springframework.core.io.ClassPathResource;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,8 +25,6 @@ import lombok.extern.slf4j.Slf4j;
 public class ExcelUtil {
 
 	private final static String EXCEL2003 = "xls";
-
-	
 
 	/**
 	 * 
@@ -55,8 +50,8 @@ public class ExcelUtil {
 	 */
 	public static Workbook ExcelWriter(InputStream inputStream, Map<String, String> dataMap,
 			List<Map<String, String>> dataList) throws IOException {
-		log.debug(ESAPIUtil.vaildLog("ExcelWriter dataMap " + dataMap));
-		log.debug(ESAPIUtil.vaildLog("ExcelWriter dataList " + dataList));
+		log.debug("ExcelWriter dataMap " + dataMap);
+		log.debug("ExcelWriter dataList " + dataList);
 		Workbook workbook = new HSSFWorkbook(inputStream);
 		// 取代workbook Sheet表 跟 dataMap 一樣的Key
 		replaceExcelData(workbook, dataMap, dataList);
