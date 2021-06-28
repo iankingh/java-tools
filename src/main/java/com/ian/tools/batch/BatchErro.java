@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.logging.log4j.message.Message;
 
 /**
  * 如需執行必須先在 本專案中的 WEB-INF中的web.xml中做設定

@@ -6,13 +6,6 @@ import java.util.List;
 /**
  * 
  * 
- * 	//
-	// ---------------------
-	// 作者：lijpdx
-	// 来源：CSDN
-	// 原文：https://blog.csdn.net/jjwldxsk/article/details/68945824
-	// 版权声明：本文为博主原创文章，转载请附上博文链接！
- * 
  * 本類別詳細說明。
  * <p/>
  * Package: com.ian.json <br>
@@ -25,6 +18,7 @@ import java.util.List;
  * @Company: Team.
  * @author Ian
  * @version 1.0, 2019年2月21日
+ * @see https://blog.csdn.net/jjwldxsk/article/details/68945824
  */
 public class RemoveNullAttr {
 
@@ -47,9 +41,7 @@ public class RemoveNullAttr {
 			return null;
 		}
 		try {
-
 			if (json instanceof JSONObject) {// if json is a Map
-
 				JSONObject jsonObj = (JSONObject) json;
 				List keyList = new ArrayList();
 				for (String k : jsonObj.keySet()) {
@@ -65,19 +57,14 @@ public class RemoveNullAttr {
 								// value=;
 								jsonObj.put(k, traverseJson(JSONArray.parseArray(value)));
 							}
-
 						}
-
 					}
 				}
 				for (String k : keyList) {
 					jsonObj.remove(k);
 				}
-
 				return jsonObj;
-
 			} else if (json instanceof JSONArray) {// if json is an Array
-
 				JSONArray jsonArr = (JSONArray) json;
 				int len = jsonArr.size();
 				for (int i = 0; i < len; ++i) {
@@ -110,7 +97,6 @@ public class RemoveNullAttr {
 			return false;
 		}
 	}
-
 	public boolean isJsonArr(Object o) {
 		try {
 			JSONArray js = JSONArray.parseArray(o.toString());
@@ -120,6 +106,5 @@ public class RemoveNullAttr {
 			return false;
 		}
 	}
-
 
 }

@@ -2,7 +2,7 @@ package com.ian.tools.other;
 
 import java.text.DecimalFormat;
 
-public class TestNumber
+public class NumberTest
 {
 
 	public static void main(String[] args)

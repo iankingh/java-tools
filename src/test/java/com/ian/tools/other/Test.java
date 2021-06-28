@@ -8,6 +8,7 @@ import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 
 
+
 public class Test {
 	public static String camelCase(String input, boolean firstCharacterUppercase) {
 		StringBuilder sb = new StringBuilder();
