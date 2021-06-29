@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * 如需執行必須先在 本專案中的 WEB-INF中的web.xml中做設定
  *
  */
-public class BatchErro extends HttpServlet {
+public class BatchError extends HttpServlet {
 
 	int count = 0;
 
