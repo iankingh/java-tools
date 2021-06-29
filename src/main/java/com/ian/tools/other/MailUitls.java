@@ -51,9 +51,9 @@ public class MailUitls {
             // 3.发送邮件:
             Transport.send(message);
         } catch (AddressException e) {
-            e.printStackTrace();
+            log.error(e, e);
         } catch (MessagingException e) {
-            e.printStackTrace();
+            log.error(e, e);
         }
 
     }
@@ -91,14 +91,11 @@ public class MailUitls {
 			message.setContent(messageText, "text/html; charset=UTF-8");
 
 			Transport.send(message);
-			System.out.println("傳送成功!");
+            log.debug("傳送成功!");
 		} catch (MessagingException e) {
-			System.out.println("傳送失敗!");
+            log.debug("傳送失敗!");
 			e.printStackTrace();
 		}
 	}
-
-
-
 
 }

@@ -9,7 +9,8 @@ import org.junit.jupiter.api.Test;
 
 
 
-public class Test {
+
+public class TestMain {
 	public static String camelCase(String input, boolean firstCharacterUppercase) {
 		StringBuilder sb = new StringBuilder();
 		boolean nextUpperCase = false;
@@ -41,7 +42,7 @@ public class Test {
 		}
 		return sb.toString();
 	}
-
+	@Test
 	public void testGsonConvert() {
 		Gson gson = new Gson();
 		String gradeIds = "[fc3938f6-e0b0-4fa9-b638-185475934336','bd528189-f1f9-48fc-9014-0580782c2dcb']";
@@ -52,7 +53,7 @@ public class Test {
 
 
 	@Test
-	public  void test() throws UnsupportedEncodingException {
+	public void test1() throws UnsupportedEncodingException {
 		String unicode = "中文";
 		System.out.println("UTF-16: " + unicode);
 		char y[] = unicode.toCharArray();
