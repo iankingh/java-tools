@@ -1,15 +1,27 @@
 package com.ian.tools.other;
 
 import java.io.UnsupportedEncodingException;
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.Scanner;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.junit.jupiter.api.Test;
 
 
 
-
+/**
+ * 
+ * 
+ * 本類別詳細說明。
+ * <p/>
+ * File Name: TestMain <br>
+ * <p/>
+ * 
+ * @Description: 處理Map
+ * @author Ian
+ * @version 1.0, 2021年06月02日
+ */
 public class TestMain {
 	public static String camelCase(String input, boolean firstCharacterUppercase) {
 		StringBuilder sb = new StringBuilder();

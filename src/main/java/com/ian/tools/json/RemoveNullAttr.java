@@ -22,89 +22,89 @@ import java.util.List;
  */
 public class RemoveNullAttr {
 
-	public static void main(String[] args) {
+	// public static void main(String[] args) {
 
-		String s = "{\"employees\": [{ \"firstName\":\"\" , \"lastName\":\"Doe\" },{ \"firstName\":\"\" , \"lastName\":\"Smith\" },{ \"firstName\":\"Peter\" , \"lastName\":\"Jones\" }]}";
-		String a = "{ \"firstName\":\"John\" , \"lastName\":\"\" }";
-		String b = "{ \"firstName\":\"\" , \"lastName\":\"Doe\" }";
-		String test = "{\"ka\":\"va\",\"kb\":{\"kbk\":\"kbv\",\"kbkk\":\"\",\"kbkkk\":{\"aaa\":\"bbb\",\"bbb\":\"\"},\"suzu\":[{\"sz\":\"sz\",\"szk\":\"\"}]},\"kc\":\"kcv\"}";
-		JSONObject js = JSONObject.parseObject(test);
+	// 	String s = "{\"employees\": [{ \"firstName\":\"\" , \"lastName\":\"Doe\" },{ \"firstName\":\"\" , \"lastName\":\"Smith\" },{ \"firstName\":\"Peter\" , \"lastName\":\"Jones\" }]}";
+	// 	String a = "{ \"firstName\":\"John\" , \"lastName\":\"\" }";
+	// 	String b = "{ \"firstName\":\"\" , \"lastName\":\"Doe\" }";
+	// 	String test = "{\"ka\":\"va\",\"kb\":{\"kbk\":\"kbv\",\"kbkk\":\"\",\"kbkkk\":{\"aaa\":\"bbb\",\"bbb\":\"\"},\"suzu\":[{\"sz\":\"sz\",\"szk\":\"\"}]},\"kc\":\"kcv\"}";
+	// 	JSONObject js = JSONObject.parseObject(test);
 
-		RemoveNullAttr r = new RemoveNullAttr();
-		Object o = r.traverseJson(js);
-		System.out.println(o);
-	}
+	// 	RemoveNullAttr r = new RemoveNullAttr();
+	// 	Object o = r.traverseJson(js);
+	// 	System.out.println(o);
+	// }
 
-	private Object traverseJson(Object json) {
-		// check null
-		if (json == null) {
-			return null;
-		}
-		try {
-			if (json instanceof JSONObject) {// if json is a Map
-				JSONObject jsonObj = (JSONObject) json;
-				List keyList = new ArrayList();
-				for (String k : jsonObj.keySet()) {
-					String value = jsonObj.get(k).toString();
-					if (StringUtil.isEmpty(value)) {
-						keyList.add(k);
-						// jsonObj.remove(k);
-					} else {
-						if (isJsonObj(value)) {
-							jsonObj.put(k, traverseJson(JSONObject.parseObject(value)));
-						} else {
-							if (isJsonArr(value)) {
-								// value=;
-								jsonObj.put(k, traverseJson(JSONArray.parseArray(value)));
-							}
-						}
-					}
-				}
-				for (String k : keyList) {
-					jsonObj.remove(k);
-				}
-				return jsonObj;
-			} else if (json instanceof JSONArray) {// if json is an Array
-				JSONArray jsonArr = (JSONArray) json;
-				int len = jsonArr.size();
-				for (int i = 0; i < len; ++i) {
-					// TODO: do something here
-					jsonArr.set(i, traverseJson(jsonArr.get(i)));
-				}
-				// return retArr;
-				//
-				// } else {// if json is just a raw element
-				//
-				// // TODO: do something here
-				// return json;
-				return jsonArr;
-				//
-			}
+	// private Object traverseJson(Object json) {
+	// 	// check null
+	// 	if (json == null) {
+	// 		return null;
+	// 	}
+	// 	try {
+	// 		if (json instanceof JSONObject) {// if json is a Map
+	// 			JSONObject jsonObj = (JSONObject) json;
+	// 			List keyList = new ArrayList();
+	// 			for (String k : jsonObj.keySet()) {
+	// 				String value = jsonObj.get(k).toString();
+	// 				if (StringUtil.isEmpty(value)) {
+	// 					keyList.add(k);
+	// 					// jsonObj.remove(k);
+	// 				} else {
+	// 					if (isJsonObj(value)) {
+	// 						jsonObj.put(k, traverseJson(JSONObject.parseObject(value)));
+	// 					} else {
+	// 						if (isJsonArr(value)) {
+	// 							// value=;
+	// 							jsonObj.put(k, traverseJson(JSONArray.parseArray(value)));
+	// 						}
+	// 					}
+	// 				}
+	// 			}
+	// 			for (String k : keyList) {
+	// 				jsonObj.remove(k);
+	// 			}
+	// 			return jsonObj;
+	// 		} else if (json instanceof JSONArray) {// if json is an Array
+	// 			JSONArray jsonArr = (JSONArray) json;
+	// 			int len = jsonArr.size();
+	// 			for (int i = 0; i < len; ++i) {
+	// 				// TODO: do something here
+	// 				jsonArr.set(i, traverseJson(jsonArr.get(i)));
+	// 			}
+	// 			// return retArr;
+	// 			//
+	// 			// } else {// if json is just a raw element
+	// 			//
+	// 			// // TODO: do something here
+	// 			// return json;
+	// 			return jsonArr;
+	// 			//
+	// 		}
 
-		} catch (Exception e) {
-			e.printStackTrace();// deal Exception or throw it
-		}
+	// 	} catch (Exception e) {
+	// 		e.printStackTrace();// deal Exception or throw it
+	// 	}
 
-		return null;
-	}
+	// 	return null;
+	// }
 
-	public boolean isJsonObj(Object o) {
-		try {
-			JSONObject js = JSONObject.parseObject(o.toString());
-			return true;
+	// public boolean isJsonObj(Object o) {
+	// 	try {
+	// 		JSONObject js = JSONObject.parseObject(o.toString());
+	// 		return true;
 
-		} catch (Exception e) {
-			return false;
-		}
-	}
-	public boolean isJsonArr(Object o) {
-		try {
-			JSONArray js = JSONArray.parseArray(o.toString());
-			return true;
+	// 	} catch (Exception e) {
+	// 		return false;
+	// 	}
+	// }
+	// public boolean isJsonArr(Object o) {
+	// 	try {
+	// 		JSONArray js = JSONArray.parseArray(o.toString());
+	// 		return true;
 
-		} catch (Exception e) {
-			return false;
-		}
-	}
+	// 	} catch (Exception e) {
+	// 		return false;
+	// 	}
+	// }
 
 }

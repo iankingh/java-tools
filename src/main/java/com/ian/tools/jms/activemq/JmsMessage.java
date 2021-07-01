@@ -4,11 +4,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.Serializable;
 
 import javax.jms.BytesMessage;
-import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import javax.jms.MapMessage;
 import javax.jms.Message;
-import javax.jms.MessageProducer;
 import javax.jms.ObjectMessage;
 import javax.jms.Queue;
 import javax.jms.QueueConnection;
