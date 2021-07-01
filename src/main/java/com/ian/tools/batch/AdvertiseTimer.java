@@ -11,6 +11,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lombok.extern.slf4j.Slf4j;
+
+
+/**
+ * 
+ * 
+ * 本類別詳細說明。
+ * <p/>
+ * File Name: AdvertiseTimer <br>
+ * <p/>
+ * 
+ * @Description: 
+ * @author Ian
+ * @version 1.0, 2021年06月02日
+ */
+@Slf4j
 public class AdvertiseTimer extends HttpServlet {
     private static final long serialVersionUID = 1L;
     Timer timer = null;
