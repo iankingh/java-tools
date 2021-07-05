@@ -1,35 +1,27 @@
 package com.ian.tools.string;
 
+/**
+ * 
+ * @ClassName: SimpleLetterAndNumCheck.java
+ * @Description: JAVA实现连续字母或者数字：<br/>
+ *               实现思路：统一转成ASCII进行计数判断，纯数字、纯字母<br/>
+ *               //纯数字(数字0 -- 数字9,对应ASCII为48 -- 57)<br/>
+ *               //大写纯字母(大写字母A -- 大写字母Z,对应ASCII为65 -- 90)<br/>
+ *               //小写纯字母(小写字母a -- 小写字母z，对应ASCII为97 -- 122)<br/>
+ *               檢查是否為相同的英數字、連續英文字或連號數字 JAVA 判断是否连续字母或者数字 * JAVA实现连续字母或者数字：
+ *               实现思路：统一转成ASCII进行计数判断，纯数字、纯字母 //纯数字(数字0 -- 数字9,对应ASCII为48 -- 57)
+ *               //大写纯字母(大写字母A -- 大写字母Z,对应ASCII为65 -- 90) //小写纯字母(小写字母a --
+ *               小写字母z，对应ASCII为97 -- 122)
+ * 
+ */
 public class SimpleLetterAndNumCheck {
 
-	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * /** JAVA 判断是否连续字母或者数字
-	 * 
-	 * JAVA实现连续字母或者数字： 实现思路：统一转成ASCII进行计数判断，纯数字、纯字母 //纯数字(数字0 -- 数字9,对应ASCII为48
-	 * -- 57) //大写纯字母(大写字母A -- 大写字母Z,对应ASCII为65 -- 90) //小写纯字母(小写字母a --
-	 * 小写字母z，对应ASCII为97 -- 122)
-	 */
-
-	/**
-	 * @ClassName: SimpleLetterAndNumCheck.java
-	 * @Description: JAVA实现连续字母或者数字：<br/>
-	 *               实现思路：统一转成ASCII进行计数判断，纯数字、纯字母<br/>
-	 *               //纯数字(数字0 -- 数字9,对应ASCII为48 -- 57)<br/>
-	 *               //大写纯字母(大写字母A -- 大写字母Z,对应ASCII为65 -- 90)<br/>
-	 *               //小写纯字母(小写字母a -- 小写字母z，对应ASCII为97 -- 122)<br/>
-	 * 
-	 * 
-	 *               檢查是否為相同的英數字、連續英文字或連號數字
-	 * 
-	 * @param value
-	 * @param length
-	 * @return 是 true ,不是 false
-	 */
-
+	 /**
+	  * 
+	  * @param value
+	  * @param length
+	  * @return 是 true ,不是 false
+	  */
 	public boolean simpleLetterAndNumCheck(String value, int length) {
 		// 是否不合法
 		boolean isValidate = false;
@@ -71,12 +63,9 @@ public class SimpleLetterAndNumCheck {
 	/**
 	 * 判斷一個數字是否在某個區間
 	 *
-	 * @param current
-	 *            當前比對值
-	 * @param min
-	 *            最小範圍值
-	 * @param max
-	 *            最大範圍值
+	 * @param current 當前比對值
+	 * @param min     最小範圍值
+	 * @param max     最大範圍值
 	 * @return
 	 */
 	public boolean rangeInDefined(int current, int min, int max) {
