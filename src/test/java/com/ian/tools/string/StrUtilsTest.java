@@ -5,6 +5,14 @@ import org.junit.jupiter.api.Test;
 
 public class StrUtilsTest {
 
+    public static void main(String args[]){
+		// TODO Auto-generated method stub
+
+		for (int i = 0; i < 9200; i++) {
+			System.out.println("加油!!");
+		}
+}
+
     @Test
     public void SameLetterAndNumCheckTest() {
         System.out.println(StrUtils.SameLetterAndNumCheck("AAAAAA", 6));
