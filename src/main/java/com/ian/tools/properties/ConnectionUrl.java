@@ -16,7 +16,7 @@ import java.util.Properties;
  * 
  * @ClassName: tw.com.ConnectionUrl
  * @Description: 讀取設定檔 filename ; 檔案名 readsname ; 設定檔名 ex : URL_PATH = XX
- * @Copyright : Copyright (c) TCB Corp. 2017. All Rights Reserved.
+ * @Copyright : Copyright (c) Ian Corp. 2017. All Rights Reserved.
  * @Company:  Team.
  * @author Administrator
  * @version 1.0, 2017/11/28

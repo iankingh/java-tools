@@ -5,17 +5,17 @@ import java.util.Map;
 
 /**
  * 
- * 本類別詳細說明。
+ * 本類別詳細說明 : 。
  * <p/>
- * Package: tw.com.fstop.login <br>
+ * Package: tw.com.ian.login <br>
  * File Name: HttpClientHelper <br>
  * <p/>
- * Purpose: <br>
+ * Purpose: 使用 Get 連線<br>
  * 
- * @ClassName: tw.com.fstop.login.HttpClientHelper
+ * @ClassName: tw.com.ian.login.HttpClientHelper
  * @Description: 使用 Get 連線
- * @Copyright : Copyright (c) TCB Corp. 2017. All Rights Reserved.
- * @Company: FSTOP Team.
+ * @Copyright : Copyright (c) Ian Corp. 2017. All Rights Reserved.
+ * @Company: ian Team.
  * @author ian
  * @version 1.0, 2017/11/26
  */

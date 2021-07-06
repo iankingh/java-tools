@@ -27,15 +27,15 @@ import com.google.gson.Gson;
  * 
  * 本類別詳細說明。
  * <p/>
- * Package: com.tcb.bfnb.login <br>
+ * Package: com.Ian.bfnb.login <br>
  * File Name: HttpClientPost <br>
  * <p/>
  * Purpose: 與 登入 API 連線程式 <br>
  * 
- * @ClassName: com.tcb.bfnb.util.HttpClientPost
+ * @ClassName: com.Ian.bfnb.util.HttpClientPost
  * @Description: 使用 post 連線
  * @return : HashMap<String, String> returnCode 狀態碼 returnDesc 錯誤回傳狀態
- * @Copyright : Copyright (c) TCB Corp. 2017. All Rights Reserved.
+ * @Copyright : Copyright (c) Ian Corp. 2017. All Rights Reserved.
  * @Company: FSTOP Team.
  * @author ianhuang
  * @version 1.0, 2017/11/15
