@@ -18,16 +18,16 @@ import java.util.Map;
  * 
  * 本類別詳細說明。
  * <p/>
- * Package: com.tcb.bfnb.login <br>
+ * Package: com.Ian.bfnb.login <br>
  * File Name: HttpClientPost <br>
  * <p/>
  * Purpose: 與　登入　API 連線程式 <br>
  * 
- * @ClassName: tw.com.fstop.login.HttpClientPost
+ * @ClassName: tw.com.ian.login.HttpClientPost
  * @Description: 使用 post 連線
  * @return : HashMap<String, String> returnCode 狀態碼 returnDesc 錯誤回傳狀態
- * @Copyright : Copyright (c) TCB Corp. 2017. All Rights Reserved.
- * @Company: FSTOP Team.
+ * @Copyright : Copyright (c) Ian Corp. 2017. All Rights Reserved.
+ * @Company: Ian Team.
  * @author ian
  * @version 1.0, 2017/11/15
  * 
@@ -42,8 +42,8 @@ public class HttpClientLogin
 	// 	HashMap<String, String> returnMap = new HashMap<String, String>();
 
 	// 	// String URL_PATH =
-	// 	// "http://localhost:9080/TCB.TWNB.EXTERNAL.WEB/EBankLoginVerifyService";
-	// 	// String URL_PATH = "http://localhost:9081/TCB.TWNB.EXTERNAL.WEB/EBankLoginVerifyService";
+	// 	// "http://localhost:9080/Ian.TWNB.EXTERNAL.WEB/EBankLoginVerifyService";
+	// 	// String URL_PATH = "http://localhost:9081/Ian.TWNB.EXTERNAL.WEB/EBankLoginVerifyService";
 	// 	String URL_PATH = ConnectionUrl.getResource("Connection.properties", "URL_PATH");
 
 	// 	// 建立HttpClient實體

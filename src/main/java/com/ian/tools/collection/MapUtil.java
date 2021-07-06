@@ -13,15 +13,15 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 
  * 
- * 本類別詳細說明。
- * <p/>
- * File Name: MapUtil <br>
+ * 本類別詳細說明 MapUtil。
+ * 
  * <p/>
  * 
  * @Description: 處理Map
  * @author Ian
  * @version 1.0, 2021年06月02日
  * @see https://blog.csdn.net/qq_27093465/article/details/79154566
+ * 
  */
 @Slf4j
 public class MapUtil {
