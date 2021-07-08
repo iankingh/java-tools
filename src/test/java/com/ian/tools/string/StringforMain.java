@@ -2,6 +2,8 @@ package com.ian.tools.string;
 
 import java.io.UnsupportedEncodingException;
 
+import org.junit.jupiter.api.Test;
+
 public class StringforMain {
 
 	public static void main(String[] args) {
@@ -185,6 +187,25 @@ public class StringforMain {
 		}
 
 	}
+
+	//1.	[Java]截取最後一個/後面的所有字元
+	@Test
+	public void substringTest(){
+		String imgUrl = "http://127.0.0.1:8080/cms/ReadAddress/1479805098158.jpg";
+		String image = imgUrl.substring(imgUrl.lastIndexOf("/")+1);
+		System.out.println("image :" +image);
+		//  最後結果：1479805098158.jpg
+		// 字串.substring(字串.lastIndexOf("\\")+1);
+
+// 		參考
+// [Java]截取最後一個/後面的所有字元 - 天上地下的博客 - CSDN博客
+// https://blog.csdn.net/qq_24023751/article/details/81635923
+
+
+	}
+
+
+
 
 
 }
