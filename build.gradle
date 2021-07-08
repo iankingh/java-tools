@@ -4,6 +4,7 @@ plugins {
 	id 'java'	
 }
 
+
 group = 'com.ian'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -35,8 +36,6 @@ dependencies {
 	// https://mvnrepository.com/artifact/javax.mail/mail
 	implementation group: 'javax.mail', name: 'mail', version: '1.4'
 
-
-
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
@@ -51,3 +50,4 @@ test {
 javadoc {
     options.encoding = 'UTF-8'
 }
+
