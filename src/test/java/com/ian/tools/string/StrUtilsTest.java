@@ -1,25 +1,28 @@
 package com.ian.tools.string;
 
-
 import org.junit.jupiter.api.Test;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class StrUtilsTest {
 
-    public static void main(String args[]){
-		// TODO Auto-generated method stub
+	@Test
+	public void replaceBlankTest() {
+		String s = "just do it!";
+		String sr = StrUtils.removeAllBlank(s);
+	
+		log.debug (sr);
 
-		for (int i = 0; i < 9200; i++) {
-			System.out.println("加油!!");
-		}
-}
+	}
 
-    @Test
-    public void SameLetterAndNumCheckTest() {
-        System.out.println(StrUtils.SameLetterAndNumCheck("AAAAAA", 6));
-    }
+	@Test
+	public void SameLetterAndNumCheckTest() {
+		System.out.println(StrUtils.SameLetterAndNumCheck("AAAAAA", 6));
+	}
 
-    @Test
-    public void strReplaceByMaskTest() {
+	@Test
+	public void strReplaceByMaskTest() {
 		String bankCard = "10112054";
 		int hideLength = 8;// 替換位數
 		int startIndex = bankCard.length() + 1 - hideLength;// 替換位數
@@ -36,7 +39,7 @@ public class StrUtilsTest {
 		System.out.println(stringBuilder);
 
 		System.out.println(StrUtils.strReplaceByMask(bankCard));
-        
-    }
+
+	}
 
 }

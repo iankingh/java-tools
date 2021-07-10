@@ -2,6 +2,8 @@ package com.ian.tools.string;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * StringUtils
@@ -138,6 +140,25 @@ public class StrUtils {
         return maptest;
 
     }
+
+    /**
+     * java去除字串中的空格、回車、分行符號、定位字元
+     * @param str
+     * @return
+     * @see https://www.oschina.net/code/snippet_107039_6026
+     */
+      public static String replaceBlank(String str) {
+        String dest  = "";
+        if (str!=null) {
+            Pattern p = Pattern.compile("\\s*|\t|\r|\n");
+            Matcher m = p.matcher(str);
+            dest = m.replaceAll("");
+            dest = str.replaceAll( "\\s", "" );
+        }
+        return dest;
+    }
+
+
 
 
 
