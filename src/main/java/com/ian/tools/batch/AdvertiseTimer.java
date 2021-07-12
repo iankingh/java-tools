@@ -17,12 +17,9 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 
  * 
- * 本類別詳細說明。
- * <p/>
- * File Name: AdvertiseTimer <br>
- * <p/>
+ * 本類別詳細說明 :
  * 
- * @Description: 
+ * @Description 本類別詳細說明
  * @author Ian
  * @version 1.0, 2021年06月02日
  */

@@ -6,12 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 
- * 
- * 本類別詳細說明 ToolsApplication
- * 
+ * 本類別詳細說明 ToolsApplication 
  * <p/>
  * 
- * @Description: ToolsApplication
+ * @Description Spring boot 啟動類
  * @author Ian
  * @version 1.0, 2021年06月02日
  * @see 
