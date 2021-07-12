@@ -2,12 +2,7 @@ package com.ian.tools.collection;
 
 /**
  * 
- * 
- * <p/>
- * Package: com.ian.tools.array <br>
- * File Name: ArrayUtils <br>
- * <p/>
- * Purpose: Array Use  <br>
+ * 本類別詳細說明 :
  * 
  * @ClassName: com.ian.Array.ArrayUtils
  * @Description: Array Use 
