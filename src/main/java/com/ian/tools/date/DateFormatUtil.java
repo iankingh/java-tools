@@ -8,7 +8,7 @@ public class DateFormatUtil
 {
 	public String DateFormatChange(Date date)
 	{
-		DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+		DateFormat df = new SimpleDateFormat();
 		String newFormatDate = df.format(date);
 		return newFormatDate;
 	}
