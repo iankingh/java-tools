@@ -143,79 +143,71 @@ public class StrUtils {
 
     /**
      * java去除字串中的空格、回車、分行符號、定位字元
+     * 
      * @param str
      * @return
      * @see https://www.oschina.net/code/snippet_107039_6026
      */
-      public static String replaceBlank(String str) {
-        String dest  = "";
-        if (str!=null) {
+    public static String replaceBlank(String str) {
+        String dest = "";
+        if (str != null) {
             Pattern p = Pattern.compile("\\s*|\t|\r|\n");
             Matcher m = p.matcher(str);
             dest = m.replaceAll("");
-            dest = str.replaceAll( "\\s", "" );
+            dest = str.replaceAll("\\s", "");
         }
         return dest;
     }
 
-
-
-
-
-
     static final int HIDELENGHTSTAR = 5; //// 開始
-	static final int HIDELENGHTEND = 3; //// 結束
-    static final String replaceSymbol =  "*"; //// 替換字元
-
-	
-
-	/**
-	 * 字串遮罩從後面開始
-	 * 
-	 * @param replaceStr
-	 *            遮罩字串
-	 * @return
-	 */
-	public static String strReplaceByMask(String replaceStr) {
-		int startIndex = replaceStr.length() - HIDELENGHTSTAR;// 開始
-		int endIndex = replaceStr.length() + 1 - HIDELENGHTEND;// 結束
-		String replaceSymbol = "*";// 替換字元
-		StringBuilder stringBuilder = new StringBuilder();
-		for (int i = 0; i < replaceStr.length(); i++) {
-			char number = replaceStr.charAt(i);
-			if (i >= startIndex && i < endIndex) {
-				stringBuilder.append(replaceSymbol);
-			} else {
-				stringBuilder.append(number);
-			}
-		}
-		return String.valueOf(stringBuilder);
-	}
-
-	/**
-	 * 字串遮罩
-	 * 
-	 * @param replaceStr
-	 *            遮罩字串
-	 * @return
-	 */
-	public static String strReplaceByMask2(String replaceStr) {
-		int startIndex = replaceStr.length() - HIDELENGHTSTAR;// 起始
-		String replaceSymbol = "*";// 替換字元
-		StringBuilder stringBuilder = new StringBuilder();
-		for (int i = 0; i < replaceStr.length(); i++) {
-			char number = replaceStr.charAt(i);
-			if (i >= startIndex) {
-				stringBuilder.append(replaceSymbol);
-			} else {
-				stringBuilder.append(number);
-			}
-		}
-		return String.valueOf(stringBuilder);
-	}
+    static final int HIDELENGHTEND = 3; //// 結束
+    static final String replaceSymbol = "*"; //// 替換字元
 
     /**
-     *  todo
+     * 字串遮罩從後面開始
+     * 
+     * @param replaceStr 遮罩字串
+     * @return
+     */
+    public static String strReplaceByMask(String replaceStr) {
+        int startIndex = replaceStr.length() - HIDELENGHTSTAR;// 開始
+        int endIndex = replaceStr.length() + 1 - HIDELENGHTEND;// 結束
+        String replaceSymbol = "*";// 替換字元
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < replaceStr.length(); i++) {
+            char number = replaceStr.charAt(i);
+            if (i >= startIndex && i < endIndex) {
+                stringBuilder.append(replaceSymbol);
+            } else {
+                stringBuilder.append(number);
+            }
+        }
+        return String.valueOf(stringBuilder);
+    }
+
+    /**
+     * 字串遮罩
+     * 
+     * @param replaceStr 遮罩字串
+     * @return
+     */
+    public static String strReplaceByMask2(String replaceStr) {
+        int startIndex = replaceStr.length() - HIDELENGHTSTAR;// 起始
+        String replaceSymbol = "*";// 替換字元
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < replaceStr.length(); i++) {
+            char number = replaceStr.charAt(i);
+            if (i >= startIndex) {
+                stringBuilder.append(replaceSymbol);
+            } else {
+                stringBuilder.append(number);
+            }
+        }
+        return String.valueOf(stringBuilder);
+    }
+
+    /**
+     * todo
      */
     public static char[] isNotBlank(String string) {
         return null;
@@ -228,12 +220,7 @@ public class StrUtils {
      */
     public static boolean isBlank(Object obj) {
         String nStr = String.valueOf(obj);
-        
         return nStr.isBlank();
     }
-
-
-
-
 
 }
