@@ -14,7 +14,7 @@ import java.util.Properties;
  * <p/>
  * Purpose: <br>
  * 
- * @ClassName: tw.com.ConnectionUrl
+ * @ClassName: ian.com.ConnectionUrl
  * @Description: 讀取設定檔 filename ; 檔案名 readsname ; 設定檔名 ex : URL_PATH = XX
  * @Copyright : Copyright (c) Ian Corp. 2017. All Rights Reserved.
  * @Company:  Team.

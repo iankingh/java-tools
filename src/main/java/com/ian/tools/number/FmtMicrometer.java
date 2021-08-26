@@ -6,9 +6,10 @@ import java.text.ParseException;
 
 /**
  * @ClassName: FmtMicrometer
- * @Description: 格式化數字千分位工具类
- * @author wsq E-mail：
+ * @Description: 格式化數字工具
+ * @author ian
  * @date 2017-6-1 下午02:25:57
+ * @see https://blog.csdn.net/qq_28867949/article/details/72832014
  * 
  */
 public class FmtMicrometer {
@@ -61,9 +62,3 @@ public class FmtMicrometer {
 	}
 
 }
-
-// ---------------------
-// 作者：Mr_温少
-// 来源：CSDN
-// 原文：https://blog.csdn.net/qq_28867949/article/details/72832014
-// 版权声明：本文为博主原创文章，转载请附上博文链接！
