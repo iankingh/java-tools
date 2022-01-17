@@ -9,7 +9,7 @@ import java.util.Properties;
  * 
  * 本類別詳細說明。
  * <p/>
- * Package: tw.com.fstop.login <br>
+ * Package: tw.com.ian.login <br>
  * File Name: ConnectionUrl <br>
  * <p/>
  * Purpose: <br>
