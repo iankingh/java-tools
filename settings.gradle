@@ -1,1 +1,15 @@
-rootProject.name = 'tools'
+pluginManagement {
+	repositories {
+		gradlePluginPortal()
+		mavenCentral()
+	}
+}
+
+rootProject.name = 'java-tools'
+
+include 'java-tools-core'
+include 'java-tools-http'
+include 'java-tools-excel'
+include 'java-tools-spring-redis'
+include 'java-tools-jakarta'
+include 'java-tools-examples'

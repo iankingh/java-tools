@@ -1,0 +1,23 @@
+plugins {
+	id 'application'
+}
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+dependencies {
+	implementation project(':java-tools-core')
+	implementation project(':java-tools-http')
+}
+
+application {
+	mainClass = 'io.github.iankingh.javatools.examples.UtilityExamples'
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+	options.compilerArgs.addAll(['-Xlint:all', '-Werror'])
+}

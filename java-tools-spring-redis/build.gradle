@@ -1,0 +1,30 @@
+sourceSets {
+	integrationTest {
+		java.srcDir file('src/integrationTest/java')
+		resources.srcDir file('src/integrationTest/resources')
+		compileClasspath += sourceSets.main.output + configurations.testRuntimeClasspath
+		runtimeClasspath += output + compileClasspath
+	}
+}
+
+configurations {
+	integrationTestImplementation.extendsFrom testImplementation
+	integrationTestRuntimeOnly.extendsFrom testRuntimeOnly
+}
+
+dependencies {
+	api "org.springframework.data:spring-data-redis:${rootProject.ext.springDataRedisVersion}"
+
+	integrationTestImplementation "org.testcontainers:testcontainers:${rootProject.ext.testcontainersVersion}"
+	integrationTestImplementation "org.testcontainers:junit-jupiter:${rootProject.ext.testcontainersVersion}"
+	integrationTestImplementation 'io.lettuce:lettuce-core:7.6.0.RELEASE'
+}
+
+tasks.register('integrationTest', Test) {
+	description = 'Runs optional Redis integration tests with Testcontainers.'
+	group = 'verification'
+	testClassesDirs = sourceSets.integrationTest.output.classesDirs
+	classpath = sourceSets.integrationTest.runtimeClasspath
+	shouldRunAfter test
+	useJUnitPlatform()
+}
