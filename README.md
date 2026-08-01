@@ -13,7 +13,7 @@ Java 21 多模組工具庫，提供安全預設、明確錯誤處理、可測試
 | `java-tools-excel` | Excel placeholder 與重複列模板 | Apache POI |
 | `java-tools-spring-redis` | constructor-injected Redis string/object operations | Spring Data Redis |
 | `java-tools-jakarta` | 安全 JAXB 與 JMS text client | Jakarta JAXB/JMS |
-| `java-tools-examples` | 精選、可執行範例 | core、http |
+| `java-tools-examples` | 精選、可執行範例 | core |
 
 ## 環境需求
 
@@ -37,8 +37,8 @@ repositories {
 }
 
 dependencies {
-    implementation 'io.github.iankingh:java-tools-core:1.0.0-SNAPSHOT'
-    implementation 'io.github.iankingh:java-tools-http:1.0.0-SNAPSHOT'
+    implementation 'io.github.iankingh:java-tools-core:2.0.0-SNAPSHOT'
+    implementation 'io.github.iankingh:java-tools-http:2.0.0-SNAPSHOT'
 }
 ```
 
@@ -98,13 +98,13 @@ Redis 真實服務測試為選用 task，不影響預設本機 build：
 
 ## 相容性與遷移
 
-少數仍有遷移價值的 `com.ian.tools.*` 類別保留為 deprecated wrapper，預計在 2.0 移除。新程式請直接使用 `io.github.iankingh.javatools.*`。
+`com.ian.tools.*` deprecated wrapper 已於 2.0 移除。請直接使用 `io.github.iankingh.javatools.*`。
 
 完整對照與行為變更請見 [MIGRATION.md](MIGRATION.md)。安全政策請見 [SECURITY.md](SECURITY.md)。
 
 ## 發布
 
-`publish.yml` 可由 GitHub Release 或手動 workflow dispatch 發布至 GitHub Packages。版本可透過 `-PversionOverride=x.y.z` 覆寫；預設開發版本為 `1.0.0-SNAPSHOT`。
+`publish.yml` 可由 GitHub Release 或手動 workflow dispatch 發布至 GitHub Packages。版本可透過 `-PversionOverride=x.y.z` 覆寫；預設開發版本為 `2.0.0-SNAPSHOT`。
 
 ## License
 

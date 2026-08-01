@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'io.github.iankingh'
-version = providers.gradleProperty('versionOverride').getOrElse('1.0.0-SNAPSHOT')
+version = providers.gradleProperty('versionOverride').getOrElse('2.0.0-SNAPSHOT')
 
 ext {
 	jacksonVersion = '2.22.1'

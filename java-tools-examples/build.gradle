@@ -10,11 +10,17 @@ java {
 
 dependencies {
 	implementation project(':java-tools-core')
-	implementation project(':java-tools-http')
+	testImplementation platform("org.junit:junit-bom:${rootProject.ext.junitVersion}")
+	testImplementation 'org.junit.jupiter:junit-jupiter'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 application {
 	mainClass = 'io.github.iankingh.javatools.examples.UtilityExamples'
+}
+
+tasks.withType(Test).configureEach {
+	useJUnitPlatform()
 }
 
 tasks.withType(JavaCompile).configureEach {

@@ -20,6 +20,6 @@ Redis integration test 需要 Docker：
 - 公開 API 必須有英文 Javadoc、成功與失敗路徑測試。
 - 不得加入 trust-all TLS、硬編碼 secret、空 catch 或以 `null` 偽裝錯誤。
 - 新增 dependency 前先確認無 JDK 或既有 library 可重用的功能。
-- deprecated wrapper 只用於 1.x 遷移，不得成為新功能入口。
+- `com.ian.tools.*` deprecated wrapper 已於 2.0 移除；新功能一律使用 `io.github.iankingh.javatools.*`。
 
 送出 PR 前執行 `./gradlew check`。格式問題可用 `./gradlew spotlessApply` 修正。

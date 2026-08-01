@@ -26,7 +26,7 @@
 | `com.ian.tools.redis.RedisStrUtils` | `io.github.iankingh.javatools.redis.RedisStringStore` |
 | `com.ian.tools.jaxb.JaxbUtil` | `io.github.iankingh.javatools.jakarta.XmlBindings` |
 
-deprecated wrapper 保留於 1.x，預計在 2.0 移除。沒有實際可運作內容、重複、空殼或只包含大段註解的類別不提供 wrapper。
+deprecated wrapper 已於 2.0 移除（1.x 期間僅供遷移使用）。沒有實際可運作內容、重複、空殼或只包含大段註解的類別不提供 wrapper。
 
 ## 重要行為變更
 
@@ -47,4 +47,4 @@ deprecated wrapper 保留於 1.x，預計在 2.0 移除。沒有實際可運作�
 - domain-specific account enum、未驗證的 lunar calendar、純 console 練習程式。
 - 原始碼中的敏感示範資料與不安全 TLS bypass。
 
-Git 歷史版本曾包含示範憑證。若其中任何值曾為真實憑證，請立即輪替；如 repository 曾公開，另行評估清理 Git history。這次變更不會破壞性重寫既有歷史。
+Git 歷史版本曾包含示範憑證；這些值已於 2.0 整理時透過 history rewrite 從預設分支歷史移除。若其中任何值曾為真實憑證，請立即輪替（公開 repository 的歷史副本可能已被快取或 fork）。

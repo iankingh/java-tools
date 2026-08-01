@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-Security fixes are applied to the latest 1.x release line. Deprecated migration APIs are supported only until 2.0 and must not be used for new data or new integrations.
+Security fixes are applied to the latest 2.x release line. The deprecated `com.ian.tools.*` wrappers were removed in 2.0; the Triple DES migration-only API remains for decrypting legacy data only and must not be used for new data or new integrations.
 
 ## Reporting a vulnerability
 
