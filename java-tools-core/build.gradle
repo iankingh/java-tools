@@ -1,0 +1,35 @@
+jacocoTestCoverageVerification {
+	dependsOn test
+	violationRules {
+		rule {
+			limit {
+				counter = 'LINE'
+				value = 'COVEREDRATIO'
+				minimum = 0.80
+			}
+			limit {
+				counter = 'BRANCH'
+				value = 'COVEREDRATIO'
+				minimum = 0.70
+			}
+		}
+	}
+}
+
+def productionClassDirectories = provider {
+	files(sourceSets.main.output.classesDirs.files.collect {
+		fileTree(dir: it, exclude: ['com/ian/tools/**'])
+	})
+}
+
+jacocoTestReport {
+	classDirectories.setFrom(productionClassDirectories)
+}
+
+jacocoTestCoverageVerification {
+	classDirectories.setFrom(productionClassDirectories)
+}
+
+check {
+	dependsOn jacocoTestCoverageVerification
+}

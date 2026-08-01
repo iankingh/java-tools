@@ -1,0 +1,3 @@
+dependencies {
+	api "org.apache.poi:poi-ooxml:${rootProject.ext.poiVersion}"
+}
