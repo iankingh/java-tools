@@ -1,29 +1,31 @@
 # java-tools
 
-Java 21 多模組工具庫，提供安全預設、明確錯誤處理、可測試的整合層，以及可發布到 Maven/GitHub Packages 的 artifacts。
+Java 21 多模組工具庫，將通用工具與選用整合拆成獨立 artifact。核心模組不依賴 Spring；HTTP、Excel、Redis、JMS 與 JAXB 功能只在對應模組引入。
 
-這個專案不再是 Spring Boot 應用程式。核心工具不依賴 Spring；Redis、JMS、JAXB、Excel 與 HTTP 功能各自隔離，使用者只需引入需要的模組。
+這個 repository 是 library 專案，不是 Spring Boot application，也沒有長駐服務可啟動。API 採明確例外、`Optional` 與安全預設；舊版遷移注意事項見 [MIGRATION.md](MIGRATION.md)。
 
-## 模組
+## 模組與原始碼導覽
 
-| Artifact | 用途 | 主要外部依賴 |
+| Gradle module / artifact | Package 與目前內容 | 主要外部依賴 |
 | --- | --- | --- |
-| `java-tools-core` | 字串、集合、日期、數字、Base64、properties、AES-GCM、模板 | 無 |
-| `java-tools-http` | JDK HTTP client、Jackson JSON、JSON tree 清理 | Jackson |
-| `java-tools-excel` | Excel placeholder 與重複列模板 | Apache POI |
-| `java-tools-spring-redis` | constructor-injected Redis string/object operations | Spring Data Redis |
-| `java-tools-jakarta` | 安全 JAXB 與 JMS text client | Jakarta JAXB/JMS |
-| `java-tools-examples` | 精選、可執行範例 | core |
+| `java-tools-core` | `collection`（陣列、Map）、`io`（Base64、classpath properties）、`number`、`text`（字串、UUID、文字模板）、`time`、`validation`、`security`（AES-GCM、log 單行化）、`legacy`（Triple DES 遷移） | 無 |
+| `java-tools-http` | `http.JsonHttpClient` 的 GET、JSON POST、form POST 與自訂 `HttpRequest`；`JsonValues` 清除 JSON tree 的 null/空字串；非 2xx 回應使用 `HttpStatusException` | `java.net.http`、Jackson |
+| `java-tools-excel` | `excel.ExcelTemplateRenderer` 取代 workbook 中的 `${name}` placeholder，並依資料列重複 template row | Apache POI |
+| `java-tools-spring-redis` | `redis.RedisStringStore` 封裝字串值的 set/get/delete、expiry 與 TTL | Spring Data Redis |
+| `java-tools-jakarta` | `jakarta.XmlBindings` 的 JAXB marshal/unmarshal；`JmsTextClient` 的文字訊息 send/receive | Jakarta JAXB/JMS |
+| `java-tools-examples` | `examples.UtilityExamples`，示範日期、數字格式與字串遮罩；這是唯一套用 `application` plugin 的模組，不會發布 | `java-tools-core` |
+
+所有 production code 位於各模組的 `src/main/java/io/github/iankingh/javatools/`，單元測試位於 `src/test/java/`。API 的輸入、錯誤與邊界行為可直接從同名測試導覽；Redis 的真實服務測試另位於 `java-tools-spring-redis/src/integrationTest/java/`。
 
 ## 環境需求
 
-- Java 21 LTS
-- 專案內建 Gradle Wrapper 9.6.1
-- 選用 Redis integration test 時需要 Docker
+- Java 21（Gradle toolchain 與 CI 均固定為 21）
+- repository 內建 Gradle Wrapper 9.6.1；不需要另行安裝 Gradle
+- 執行選用 Redis integration test 時需要可用的 Docker daemon，測試透過 Testcontainers 啟動 Redis
 
-## 使用方式
+## 取得 artifact
 
-GitHub Packages repository：
+發布目標是 GitHub Packages。預設開發版本由 root build 設為 `2.0.0-SNAPSHOT`；實際可下載版本以 repository 的 Packages/Release 為準。存取 GitHub Packages 需要具有對應 package 權限的 credentials。
 
 ```groovy
 repositories {
@@ -42,7 +44,11 @@ dependencies {
 }
 ```
 
-核心 API：
+只加入實際使用的模組；各 library module 都會個別產生 sources 與 Javadoc JAR。
+
+## 已實作 API 範例
+
+核心工具：
 
 ```java
 import io.github.iankingh.javatools.security.AesGcmCrypto;
@@ -61,51 +67,61 @@ var date = DateTimes.parseDate("2026-07-30");
 HTTP JSON：
 
 ```java
+import io.github.iankingh.javatools.http.JsonHttpClient;
+import java.net.URI;
+import java.time.Duration;
+
+record Response(String name) {}
+
 var client = JsonHttpClient.create(Duration.ofSeconds(10), Duration.ofSeconds(30));
-var response = client.post(uri, request, Response.class);
+var response = client.get(URI.create("https://example.test/value"), Response.class);
 ```
 
-HTTP client 使用 JVM trust store 的標準 TLS 憑證與 hostname 驗證，不提供 trust-all 模式。
+`JsonHttpClient` 只接受 `http`/`https` URI，使用 JVM trust store 的標準 TLS 憑證與 hostname 驗證，不提供 trust-all 模式。更多可執行用法見 `java-tools-examples`；各整合模組的具體呼叫方式見其同名測試。
 
-## 建置與品質檢查
+## 建置、測試與執行
+
+CI 的完整 library 驗證：
 
 ```bash
-./gradlew check
-./gradlew javadoc
-./gradlew publishAllToMavenLocal
+./gradlew check javadoc publishAllToMavenLocal
 ```
 
-`check` 包含：
+其中 `check` 會執行 JUnit、Spotless、SpotBugs、JaCoCo 與 Java compiler `-Xlint:all -Werror`；`java-tools-core` 另要求至少 80% line coverage、70% branch coverage。HTML coverage report 會產生於各 library module 的 `build/reports/jacoco/test/html/`。
 
-- JUnit 測試
-- Spotless 格式檢查
-- SpotBugs 靜態分析
-- JaCoCo 報告
-- `java-tools-core` 至少 80% line coverage、70% branch coverage
-- Java compiler `-Xlint:all -Werror`
-
-Redis 真實服務測試為選用 task，不影響預設本機 build：
-
-```bash
-./gradlew :java-tools-spring-redis:integrationTest
-```
-
-執行範例：
+執行範例 application：
 
 ```bash
 ./gradlew :java-tools-examples:run
 ```
 
-## 相容性與遷移
+Redis 真實服務測試不在預設 `check` 內：
 
-`com.ian.tools.*` deprecated wrapper 已於 2.0 移除。請直接使用 `io.github.iankingh.javatools.*`。
+```bash
+./gradlew :java-tools-spring-redis:integrationTest
+```
 
-完整對照與行為變更請見 [MIGRATION.md](MIGRATION.md)。安全政策請見 [SECURITY.md](SECURITY.md)。
+格式問題可使用 build 已定義的 task 修正：
+
+```bash
+./gradlew spotlessApply
+```
+
+## 狀態與限制
+
+- `com.ian.tools.*` deprecated wrapper 已於 2.0 移除；目前 package namespace 為 `io.github.iankingh.javatools.*`。
+- `LegacyTripleDes` 僅供既有資料遷移；新資料應使用 `AesGcmCrypto`。
+- Redis module 只封裝 `StringRedisTemplate` 的字串操作，不提供 Redis server 或 Spring Boot 自動設定。
+- JMS client 需要呼叫端提供 `ConnectionFactory` 與 `Destination`；Excel renderer 需要呼叫端提供 workbook template。
+- root build 沒有宣告 BOM；每個模組是獨立 dependency。
+
+## 延伸文件
+
+- [MIGRATION.md](MIGRATION.md)：舊 package/API 對照與行為變更
+- [CONTRIBUTING.md](CONTRIBUTING.md)：開發與驗證規則
+- [SECURITY.md](SECURITY.md)：支援版本、安全預設與回報方式
+- [LICENSE](LICENSE)：MIT License
 
 ## 發布
 
-`publish.yml` 可由 GitHub Release 或手動 workflow dispatch 發布至 GitHub Packages。版本可透過 `-PversionOverride=x.y.z` 覆寫；預設開發版本為 `2.0.0-SNAPSHOT`。
-
-## License
-
-[MIT](LICENSE)
+`.github/workflows/publish.yml` 可由 GitHub Release 或手動 workflow dispatch 發布至 GitHub Packages。版本可透過 `-PversionOverride=x.y.z` 覆寫。
