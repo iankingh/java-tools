@@ -87,7 +87,11 @@ CI 的完整 library 驗證：
 ./gradlew check javadoc publishAllToMavenLocal
 ```
 
-其中 `check` 會執行 JUnit、Spotless、SpotBugs、JaCoCo 與 Java compiler `-Xlint:all -Werror`；`java-tools-core` 另要求至少 80% line coverage、70% branch coverage。HTML coverage report 會產生於各 library module 的 `build/reports/jacoco/test/html/`。
+其中 `check` 會執行 JUnit、Spotless 與 Java compiler `-Xlint:all -Werror`；五個
+library module 另執行 SpotBugs 與 JaCoCo，`java-tools-core` 並要求至少 80% line
+coverage、70% branch coverage。`java-tools-examples` 是不發布的 application，因此
+不套用 library modules 的 SpotBugs、JaCoCo 與 publishing gate。HTML coverage
+report 會產生於各 library module 的 `build/reports/jacoco/test/html/`。
 
 執行範例 application：
 
