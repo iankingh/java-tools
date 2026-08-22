@@ -17,7 +17,7 @@ dependencies {
 
 	integrationTestImplementation "org.testcontainers:testcontainers:${rootProject.ext.testcontainersVersion}"
 	integrationTestImplementation "org.testcontainers:junit-jupiter:${rootProject.ext.testcontainersVersion}"
-	integrationTestImplementation 'io.lettuce:lettuce-core:7.6.0.RELEASE'
+	integrationTestImplementation 'io.lettuce:lettuce-core:7.7.0.RELEASE'
 }
 
 tasks.register('integrationTest', Test) {
