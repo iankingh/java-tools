@@ -34,4 +34,4 @@ jobs:
       - name: Verify Docker
         run: docker info
       - name: Run Redis Testcontainers tests
-        run: ./gradlew :java-tools-spring-redis:integrationTest --no-daemon
+        run: ./gradlew :java-tools-spring-redis:redisIntegrationCheck --no-daemon

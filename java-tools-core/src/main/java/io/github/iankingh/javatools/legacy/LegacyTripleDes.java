@@ -7,7 +7,10 @@ import javax.crypto.spec.DESedeKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 
 /**
- * Migration-only Triple DES support.
+ * Compatibility-only Triple DES support for migrating existing data.
+ *
+ * <p>Do not use this API to encrypt new data or for new integrations. Use {@link
+ * io.github.iankingh.javatools.security.AesGcmCrypto} for new data.
  *
  * @deprecated Triple DES and ECB mode are obsolete. Use {@link
  *     io.github.iankingh.javatools.security.AesGcmCrypto} for new data.
@@ -16,12 +19,14 @@ import javax.crypto.spec.IvParameterSpec;
 public final class LegacyTripleDes {
     private LegacyTripleDes() {}
 
-    /** Encrypts with legacy DESede/ECB/PKCS5Padding. */
+    /**
+     * Encrypts with legacy DESede/ECB/PKCS5Padding for compatibility only; do not use for new data.
+     */
     public static byte[] encryptEcb(byte[] key, byte[] data) throws GeneralSecurityException {
         return cipher(Cipher.ENCRYPT_MODE, key, null, "DESede/ECB/PKCS5Padding").doFinal(data);
     }
 
-    /** Decrypts with legacy DESede/ECB/PKCS5Padding. */
+    /** Decrypts existing data with legacy DESede/ECB/PKCS5Padding for migration only. */
     public static byte[] decryptEcb(byte[] key, byte[] data) throws GeneralSecurityException {
         return cipher(Cipher.DECRYPT_MODE, key, null, "DESede/ECB/PKCS5Padding").doFinal(data);
     }

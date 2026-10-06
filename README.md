@@ -21,7 +21,8 @@ Java 21 多模組工具庫，將通用工具與選用整合拆成獨立 artifact
 
 - Java 21（Gradle toolchain 與 CI 均固定為 21）
 - repository 內建 Gradle Wrapper 9.6.1；不需要另行安裝 Gradle
-- 執行選用 Redis integration test 時需要可用的 Docker daemon，測試透過 Testcontainers 啟動 Redis
+- Redis integration gate 預設透過 Testcontainers 啟動 Redis，需要 Docker daemon；
+  也可明確指定既有本機測試 Redis，不需要 Docker
 
 ## 取得 artifact
 
@@ -102,8 +103,24 @@ report 會產生於各 library module 的 `build/reports/jacoco/test/html/`。
 Redis 真實服務測試不在預設 `check` 內：
 
 ```bash
-./gradlew :java-tools-spring-redis:integrationTest
+./gradlew :java-tools-spring-redis:redisIntegrationCheck
+
+# 使用已存在的本機測試 Redis（不會啟動或更改主機服務）
+./gradlew :java-tools-spring-redis:redisIntegrationCheck \
+  -Dredis.integration.host=127.0.0.1 \
+  -Dredis.integration.port=6379 -Dredis.integration.database=15
 ```
+
+此 gate 會跑真實 set/get/delete、Unicode、TTL 保留、expiry 與批次刪除測試，
+並執行 Spotless、production/integration SpotBugs 及 integration JaCoCo 報告
+（`java-tools-spring-redis/build/reports/jacoco/redisIntegrationCoverage/html/`）。
+測試只使用 UUID 前綴的 keys 並在結束時刪除自己的 keys，不會 `FLUSHDB`。
+指定的 Redis 必須可連線且允許無密碼存取；不可指向 production。
+缺少 Docker 或 Redis 時 gate **失敗**，不會跳過測試或宣稱整合通過。
+Integration tests 不使用 Gradle build cache 或 up-to-date shortcut；每次呼叫都會
+實際連線，避免沿用服務已停止前的成功結果。
+2026-10-05 已驗證 Gradle 以 Java `25.0.4.1` 啟動仍可執行 `check` 與 Redis gate；
+專案的 Java 21 toolchain 設定未變，此結果不是宣稱 library 改為 Java 25 target。
 
 格式問題可使用 build 已定義的 task 修正：
 

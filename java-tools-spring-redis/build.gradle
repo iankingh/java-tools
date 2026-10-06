@@ -21,10 +21,35 @@ dependencies {
 }
 
 tasks.register('integrationTest', Test) {
-	description = 'Runs optional Redis integration tests with Testcontainers.'
+	description = 'Runs Redis integration tests against Testcontainers or an explicit Redis host.'
 	group = 'verification'
 	testClassesDirs = sourceSets.integrationTest.output.classesDirs
 	classpath = sourceSets.integrationTest.runtimeClasspath
 	shouldRunAfter test
 	useJUnitPlatform()
+	outputs.upToDateWhen { false }
+	outputs.doNotCacheIf('Requires a live Redis service on every invocation') { true }
+	['host', 'port', 'database'].each { option ->
+		def value = providers.systemProperty("redis.integration.${option}")
+		if (value.isPresent()) {
+			systemProperty "redis.integration.${option}", value.get()
+		}
+	}
+	systemProperty 'java.io.tmpdir', layout.buildDirectory.get().asFile.absolutePath
+}
+
+tasks.register('redisIntegrationCoverage', JacocoReport) {
+	dependsOn integrationTest
+	executionData integrationTest
+	sourceSets sourceSets.main
+	reports {
+		xml.required = true
+		html.required = true
+	}
+}
+
+tasks.register('redisIntegrationCheck') {
+	description = 'Runs real Redis tests, formatting, static analysis and integration coverage.'
+	group = 'verification'
+	dependsOn integrationTest, rootProject.tasks.named('spotlessCheck'), spotbugsMain, spotbugsIntegrationTest, redisIntegrationCoverage
 }
