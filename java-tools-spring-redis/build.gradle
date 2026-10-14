@@ -16,8 +16,8 @@ dependencies {
 	api "org.springframework.data:spring-data-redis:${rootProject.ext.springDataRedisVersion}"
 
 	integrationTestImplementation "org.testcontainers:testcontainers:${rootProject.ext.testcontainersVersion}"
-	integrationTestImplementation "org.testcontainers:junit-jupiter:${rootProject.ext.testcontainersVersion}"
-	integrationTestImplementation 'io.lettuce:lettuce-core:7.6.0.RELEASE'
+	integrationTestImplementation "org.testcontainers:testcontainers-junit-jupiter:${rootProject.ext.testcontainersVersion}"
+	integrationTestImplementation 'io.lettuce:lettuce-core:7.8.0.RELEASE'
 }
 
 tasks.register('integrationTest', Test) {

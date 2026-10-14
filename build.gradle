@@ -1,21 +1,21 @@
 plugins {
 	id 'base'
-	id 'com.diffplug.spotless' version '8.9.0'
-	id 'com.github.spotbugs' version '6.5.9' apply false
+	id 'com.diffplug.spotless' version '8.10.3'
+	id 'com.github.spotbugs' version '6.5.12' apply false
 }
 
 group = 'io.github.iankingh'
 version = providers.gradleProperty('versionOverride').getOrElse('2.0.0-SNAPSHOT')
 
 ext {
-	jacksonVersion = '2.22.1'
+	jacksonVersion = '2.22.3'
 	jaxbVersion = '4.0.9'
 	jmsVersion = '3.1.0'
-	junitVersion = '6.1.2'
-	mockitoVersion = '5.23.0'
+	junitVersion = '6.1.3'
+	mockitoVersion = '5.24.0'
 	poiVersion = '5.5.1'
-	springDataRedisVersion = '4.1.0'
-	testcontainersVersion = '1.21.4'
+	springDataRedisVersion = '4.1.1'
+	testcontainersVersion = '2.0.5'
 }
 
 allprojects {
@@ -45,6 +45,10 @@ configure(libraryProjects) {
 		}
 		withJavadocJar()
 		withSourcesJar()
+	}
+
+	jacoco {
+		toolVersion = '0.8.15'
 	}
 
 	dependencies {
